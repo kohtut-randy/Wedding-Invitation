@@ -1,0 +1,70 @@
+/* 1. External imports MUST be first */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap");
+
+/* 2. Then Tailwind (v4) */
+@import "tailwindcss";
+
+:root {
+  --ivory: #fbf8f3;
+  --cream: #f5efe6;
+  --gold: #c9a961;
+  --gold-light: #d9c08a;
+  --gold-dark: #a8874a;
+  --charcoal: #2c2825;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--ivory);
+  color: var(--charcoal);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+#root {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.font-serif {
+  font-family: "Cormorant Garamond", serif;
+}
+
+/* Offset for fixed navbar */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+@layer utilities {
+  .text-gold {
+    color: var(--gold);
+  }
+  .bg-ivory {
+    background-color: var(--ivory);
+  }
+  .bg-cream {
+    background-color: var(--cream);
+  }
+  .border-gold {
+    border-color: var(--gold);
+  }
+  .bg-gold {
+    background-color: var(--gold);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 4px;
+}
