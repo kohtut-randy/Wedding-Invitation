@@ -1,12 +1,12 @@
 import Bride from "../assets/Bride.jpg";
 import Groom from "../assets/Groom.jpg";
-import Wedding from "../assets/Wedding.jpg";
-import HighShot from "../assets/HighShot.jpg";
+import Wedding from "../assets/wedding.jpg";
+import HighShot from "../assets/highShot.jpg";
 import SandY from "../assets/S&Y.jpg";
 import SandY2 from "../assets/S&Y2.jpg";
 import SandY3 from "../assets/S&Y3.jpg";
 import fadeCouple from "../assets/fadeCouple.jpg";
-import StoryWedding from "../assets/StoryWedding.jpg";
+import StoryWedding from "../assets/storywedding.jpg";
 
 export interface StoryEvent {
   date: string;
