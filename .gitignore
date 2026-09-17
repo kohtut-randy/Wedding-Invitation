@@ -1,4 +1,4 @@
-# Logs
+# ─── Logs ───────────────────────────────
 logs
 *.log
 npm-debug.log*
@@ -7,12 +7,13 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# ─── Dependencies & build output ────────
 node_modules
 dist
 dist-ssr
 *.local
 
-# Editor directories and files
+# ─── Editor / OS ────────────────────────
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -22,18 +23,31 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-# Environment variables
+
+# ─── Environment variables ──────────────
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+.env.*.local
 
-
-# Large media — host externally
+# ─── Large media (host externally) ──────
 *.mp4
 *.mov
 *.avi
 *.webm
 *.psd
 *.ai
+
+# ─── Original (unoptimized) images ──────
+# Only inside src/assets — anywhere else still gets tracked
+src/assets/**/*.jpg
+src/assets/**/*.jpeg
+src/assets/**/*.png
+
+# Keep optimized WebP tracked
+!src/assets/**/*.webp
+
+# Optional: exclude original-image folder explicitly
+src/assets/originals/

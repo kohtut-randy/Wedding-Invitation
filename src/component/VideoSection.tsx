@@ -1,33 +1,33 @@
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useMemo, useRef, useState } from "react";
 import SectionWrapper from "./SectionWrapper";
 import weddingConfig from "../config/wedding";
 
 const VideoSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
 
-  // Detect when section is 60% in view
   const isInView = useInView(containerRef, {
-    amount: 0.6,
+    amount: 0.4,
     once: false,
   });
 
-  const { title, subtitle, description, embedUrl, autoPlayOnScroll } =
-    weddingConfig.video ?? {};
+  const videoConfig = weddingConfig.video;
+  const { title, subtitle, description, embedUrl } = videoConfig ?? {};
 
-  // Build embed URL with autoplay only when in view
-  const buildSrc = (): string => {
-    if (!autoPlayOnScroll) return embedUrl as any;
-    const url = new URL(embedUrl as any);
-    if (isInView) {
-      url.searchParams.set("autoplay", "1");
-      url.searchParams.set("muted", "1");
-    } else {
-      url.searchParams.set("autoplay", "0");
-    }
+  // ✅ Build the URL ONCE per load state — prevents reloading the iframe on every scroll
+  const iframeSrc = useMemo(() => {
+    if (!embedUrl) return "";
+    const url = new URL(embedUrl);
+    url.searchParams.set("autoplay", "1");
+    url.searchParams.set("muted", "1");
     return url.toString();
-  };
+  }, [embedUrl]);
+
+  // ✅ When the section is 40% in view, mark it for loading
+  if (isInView && !shouldLoad) {
+    setShouldLoad(true);
+  }
 
   return (
     <SectionWrapper className="bg-cream h-full">
@@ -58,22 +58,45 @@ const VideoSection = () => {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="group relative overflow-hidden rounded-sm border border-gold/20 shadow-2xl"
+          className="group relative overflow-hidden rounded-sm border border-gold/20 bg-charcoal shadow-2xl"
         >
-          {/* Responsive 16:9 iframe wrapper */}
           <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-            <iframe
-              ref={iframeRef}
-              src={buildSrc()}
-              title={title}
-              allow="fullscreen; autoplay; encrypted-media; picture-in-picture"
-              allowFullScreen
-              loading="lazy"
-              className="absolute left-0 top-0 h-full w-full border-0"
-            />
+            {/* ✅ Placeholder / poster shown until iframe loads */}
+            <div
+              className={`absolute inset-0 flex items-center justify-center bg-gradient-to-br from-charcoal via-charcoal/95 to-charcoal/90 transition-opacity duration-500 ${
+                shouldLoad ? "opacity-0 pointer-events-none" : "opacity-100"
+              }`}
+            >
+              {/* Elegant monogram spinner */}
+              <div className="flex flex-col items-center gap-4 text-center">
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                  className="h-12 w-12 rounded-full border-2 border-gold/30 border-t-gold"
+                />
+                <p className="font-serif text-lg italic text-gold/80">
+                  Loading our story…
+                </p>
+              </div>
+            </div>
+
+            {/* ✅ Iframe loads only when scrolled into view */}
+            {shouldLoad && (
+              <iframe
+                src={iframeSrc}
+                title={title ?? "Wedding video"}
+                allow="fullscreen; autoplay; encrypted-media; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+                className="absolute left-0 top-0 h-full w-full border-0"
+              />
+            )}
           </div>
 
-          {/* Soft gradient overlay for premium look */}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/30 via-transparent to-transparent" />
 
           {/* Decorative corner accents */}

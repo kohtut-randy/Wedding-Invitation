@@ -30,6 +30,21 @@ body {
   width: 100%;
 }
 
+/* Prevent iOS auto-zoom on input focus */
+@supports (-webkit-touch-callout: none) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Better modal rendering on iOS */
+html,
+body {
+  overscroll-behavior: none;
+}
+
 .font-serif {
   font-family: "Cormorant Garamond", serif;
 }
