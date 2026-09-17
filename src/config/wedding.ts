@@ -128,7 +128,6 @@ const weddingConfig: WeddingConfig = {
     subtitle: "A Moment to Remember",
     description:
       "A glimpse into the moments that brought us here — laughter, adventure, and love.",
-    // ✅ Streamable embed URL with autoplay + muted
     embedUrl: "https://streamable.com/e/em2w9s?autoplay=1&muted=1&loop=1",
     autoPlayOnScroll: true,
   },
