@@ -71,8 +71,8 @@ const weddingConfig: WeddingConfig = {
     image: Bride,
   },
   groom: {
-    name: "SHANE",
-    fullName: "Wai Lin Maung",
+    name: "Shane",
+    fullName: "Wai Lin Maung @ Shane",
     description:
       "An adventurer at heart, Shane finds joy in nature, good books, and making Yee laugh.",
     image: Groom,

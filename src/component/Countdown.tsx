@@ -47,7 +47,7 @@ const CountdownUnit = ({ value, label }: CountdownUnitProps) => {
             className="flex h-full w-full items-center justify-center"
           >
             {/* ✅ Responsive number: text-xl → text-2xl → text-3xl → text-5xl */}
-            <span className="font-serif text-xl font-light text-charcoal sm:text-2xl md:text-3xl lg:text-5xl">
+            <span className="font-serif text-xl font-light text-gold sm:text-2xl md:text-3xl lg:text-5xl">
               {padded}
             </span>
           </motion.div>

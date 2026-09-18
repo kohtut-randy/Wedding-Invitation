@@ -54,7 +54,7 @@ const EventDetails = () => {
                 {event.title}
               </h3>
               <div className="mb-4 h-px w-12 bg-gold/40" />
-              <p className="mb-2 font-serif text-lg text-charcoal/80">
+              <p className="mb-2 font-serif text-4xl text-gold">
                 {event.venue}
               </p>
               <p className="mb-6 text-sm text-charcoal/60">{event.address}</p>
