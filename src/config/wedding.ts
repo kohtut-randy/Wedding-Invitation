@@ -77,7 +77,7 @@ const weddingConfig: WeddingConfig = {
     name: "Shane",
     fullName: "Wai Lin Maung @ Shane",
     description:
-      "An adventurer at heart, Shane finds joy in nature, good books, and making Yee laugh.",
+      "An adventurer at heart, Shane finds joy in nature, good books, and making Yee's laugh.",
     image: Groom,
   },
   weddingDate: "2026-10-25T11:30:00",
