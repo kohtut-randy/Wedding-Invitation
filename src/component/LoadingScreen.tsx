@@ -75,6 +75,12 @@ const LoadingScreen = ({ onFinish }: LoadingScreenProps) => {
               <span className="h-px w-12 bg-gold/40" />
             </motion.div>
 
+            <img
+              src="/public/favicon.png"
+              alt="Favicon"
+              className="mb-6 h-24 w-24 rounded-full object-cover sm:h-32 sm:w-32 md:h-40 md:w-40"
+            />
+
             {/* Monogram — bride & groom initials */}
             <motion.h1
               initial={{ opacity: 0, scale: 0.9 }}
