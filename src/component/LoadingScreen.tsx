@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import weddingConfig from "../config/wedding";
-import favicon from "../assets/Loading.png";
 
 interface LoadingScreenProps {
   onFinish?: () => void;
@@ -77,7 +76,7 @@ const LoadingScreen = ({ onFinish }: LoadingScreenProps) => {
             </motion.div>
 
             <img
-              src={favicon}
+              src={weddingConfig.Loadingimg}
               alt="Favicon"
               className="mb-6 h-24 w-24 rounded-full object-cover sm:h-32 sm:w-32 md:h-40 md:w-40"
             />

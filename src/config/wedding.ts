@@ -7,6 +7,8 @@ import SandY2 from "../assets/optimized/S&Y2.webp";
 import SandY3 from "../assets/optimized/S&Y3.webp";
 import fadeCouple from "../assets/optimized/fadeCouple.webp";
 import StoryWedding from "../assets/optimized/storywedding.webp";
+import Loadingicon from "../assets/optimized/Loading.webp";
+
 export interface StoryEvent {
   date: string;
   title: string;
@@ -60,6 +62,7 @@ export interface WeddingConfig {
   venueAddress: string;
   hashtag: string;
   video?: VideoConfig;
+  Loadingimg: string;
 }
 
 const weddingConfig: WeddingConfig = {
@@ -161,6 +164,7 @@ const weddingConfig: WeddingConfig = {
   venueName: "Lebua Thai",
   venueAddress: "30 Victoria St, #01-31 CHIJMES, Singapore 187996",
   hashtag: "#YeeAndShane2026",
+  Loadingimg: Loadingicon,
 };
 
 export default weddingConfig;
