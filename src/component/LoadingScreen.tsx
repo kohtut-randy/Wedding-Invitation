@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import weddingConfig from "../config/wedding";
-import favicon from "../assets/favicon.png";
+import favicon from "../assets/Loading.png";
 
 interface LoadingScreenProps {
   onFinish?: () => void;
