@@ -8,6 +8,9 @@ import SandY3 from "../assets/optimized/S&Y3.webp";
 import fadeCouple from "../assets/optimized/fadeCouple.webp";
 import StoryWedding from "../assets/optimized/storywedding.webp";
 import Loadingicon from "../assets/optimized/Loading.webp";
+import Thailand from "../assets/optimized/Thailand.webp";
+import Ngapali from "../assets/optimized/Ngapali.webp";
+import Bagan from "../assets/optimized/Bagan.webp";
 
 export interface StoryEvent {
   date: string;
@@ -90,19 +93,36 @@ const weddingConfig: WeddingConfig = {
       description:
         "Our story began at the Taunggyi Fire Balloon Festival. Among the lights, music, and glowing balloons in the night sky, two people met — never knowing that this moment would become the beginning of our journey together.",
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH2_O0ESAB5Y4RjnJSXjMu7_9lL3bbDGyV2nXvs9_npw&s=10",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt1DdBV6oD83g7hgwi9tzp4_mYV2ZmLxtc7SXUMauSQQ&s=10",
       quote: "The beginning of our story.",
       location: "Taunggyi, Myanmar",
     },
     {
-      date: "2020",
+      date: "2017",
       title: "Our First Trip",
       description:
         "Our first adventure together took us to Bagan. Surrounded by ancient temples, beautiful sunsets, and quiet moments, we created memories that we would carry with us for years to come.",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXbXtk9SaIF-3gqXT7m4sIbw_ycoNQRdPchtjTTOaCbA&s=10",
+      image: Bagan,
       quote: "Two hearts, one journey.",
       location: "Bagan, Myanmar",
+    },
+    {
+      date: "2022",
+      title: "Ngapali Beach Getaway",
+      description:
+        "Walking along the golden shores and listening to the calm ocean waves in Ngapali, we shared peaceful moments and deepened our bond as we explored the coast together.",
+      image: Ngapali, // Replace with your image link or import variable
+      quote: "Waves, quiet shores, and unforgettable moments.",
+      location: "Ngapali, Myanmar",
+    },
+    {
+      date: "2024",
+      title: "Thailand Adventure",
+      description:
+        "Taking our journey abroad to Thailand, we filled our days with bustling streets, delicious food, exciting sights, and laughter in every corner of the city.",
+      image: Thailand, // Replace with your image link or import variable
+      quote: "Exploring new places, side by side.",
+      location: "Chiang Mai, Thailand",
     },
     {
       date: "2025",

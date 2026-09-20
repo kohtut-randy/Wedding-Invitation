@@ -155,11 +155,11 @@ const RSVP = () => {
             <p className="relative max-w-md leading-relaxed text-charcoal/70">
               Please let us know if you'll be able to join our celebration.
               Kindly respond by{" "}
-              <span className="font-medium text-gold">August 1, 2025</span> so
+              <span className="font-medium text-gold">October 9, 2026</span> so
               we can finalize our arrangements.
             </p>
 
-            <div className="relative flex flex-wrap gap-3 pt-2">
+            {/* <div className="relative flex flex-wrap gap-3 pt-2">
               <div className="flex items-center gap-2 rounded-full border border-gold/30 bg-white/60 px-4 py-1.5">
                 <svg
                   width="12"
@@ -178,7 +178,7 @@ const RSVP = () => {
                   By October 25, 2026
                 </span>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* RIGHT panel */}

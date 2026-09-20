@@ -157,8 +157,8 @@ const OurStory = () => {
           </div>
 
           <p className="mx-auto mt-8 max-w-2xl leading-relaxed text-charcoal/70">
-            Every love story is beautiful, but this one is ours. Four moments
-            that shaped the journey we're on today.
+            Every love story is beautiful, but this one is ours. Moments that
+            shaped the journey we're on today...
           </p>
         </motion.div>
 
