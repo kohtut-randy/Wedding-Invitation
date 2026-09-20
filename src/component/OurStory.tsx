@@ -95,7 +95,7 @@ const StoryChapter = ({ event, index }: StoryChapterProps) => {
         {/* Date with flanking rule */}
         <div className="mb-6 flex items-center gap-4">
           <span className="h-px w-10 bg-gold" />
-          <span className="text-xs uppercase tracking-[0.4em] text-gold">
+          <span className="text-md text-bold-lg uppercase tracking-[0.4em] text-gold">
             {event.date}
           </span>
         </div>

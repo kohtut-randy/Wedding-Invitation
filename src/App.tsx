@@ -60,14 +60,23 @@ function App() {
         <Navbar />
         <main className="relative z-20">
           <Hero />
+
           <CoupleIntro />
+
           <OurStory />
+
           <VideoSection />
-          <Countdown />
+
           <EventDetails />
+
+          <Countdown />
+
           <Gallery />
+
           <RSVP />
+
           <Location />
+
           <ThankYou />
         </main>
       </motion.div>

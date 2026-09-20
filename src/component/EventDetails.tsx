@@ -17,7 +17,7 @@ const EventDetails = () => {
             The Celebration
           </p>
           <h2 className="font-serif text-5xl font-light text-charcoal md:text-6xl">
-            Wedding Day
+            A Special Gathering
           </h2>
         </motion.div>
 

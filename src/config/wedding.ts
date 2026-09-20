@@ -136,8 +136,8 @@ const weddingConfig: WeddingConfig = {
   ],
   events: [
     {
-      title: "Wedding Ceremony",
-      time: "11:30 AM",
+      title: "Marriage Celebration Lunch",
+      time: "11:30 AM - 2:30 PM",
       venue: "Lebua Thai",
       address: "30 Victoria St, #01-31 CHIJMES, Singapore 187996",
       description:
