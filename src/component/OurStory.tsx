@@ -3,7 +3,6 @@ import { useRef } from "react";
 import SectionWrapper from "./SectionWrapper";
 import weddingConfig, { type StoryEvent } from "../config/wedding";
 
-/* ─────────────── Single Story Chapter ─────────────── */
 interface StoryChapterProps {
   event: StoryEvent;
   index: number;
@@ -13,7 +12,6 @@ const StoryChapter = ({ event, index }: StoryChapterProps) => {
   const chapterRef = useRef<HTMLDivElement>(null);
   const isReversed = index % 2 === 1;
 
-  // Parallax scroll on the image
   const { scrollYProgress } = useScroll({
     target: chapterRef,
     offset: ["start end", "end start"],
@@ -31,7 +29,7 @@ const StoryChapter = ({ event, index }: StoryChapterProps) => {
       <motion.span
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 0.06, scale: 1 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: "some" }} // ✅ any visibility triggers
         transition={{ duration: 1.2 }}
         className={`pointer-events-none absolute -top-10 font-serif text-[180px] font-light leading-none text-gold md:text-[260px] ${
           isReversed ? "right-0" : "left-0"
@@ -40,11 +38,11 @@ const StoryChapter = ({ event, index }: StoryChapterProps) => {
         {String(index + 1).padStart(2, "0")}
       </motion.span>
 
-      {/* Image with parallax */}
+      {/* Image with parallax — ✅ vertical reveal instead of horizontal */}
       <motion.div
-        initial={{ opacity: 0, x: isReversed ? 50 : -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: "some" }} // ✅ any visibility triggers
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         className="relative w-full md:w-1/2"
       >
@@ -53,12 +51,10 @@ const StoryChapter = ({ event, index }: StoryChapterProps) => {
             src={event.image}
             alt={event.title}
             style={{ y }}
-            className="aspect-[2/3] w-full h-[300px] scale-100 object-contain transition-transform duration-[1.5s] group-hover:scale-[1.15]"
+            className="h-[300px] w-full scale-100 object-contain transition-transform duration-[1.5s] group-hover:scale-[1.15]"
           />
-          {/* Soft gradient */}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/40 via-transparent to-transparent" />
 
-          {/* Location chip */}
           {event.location && (
             <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-full border border-ivory/30 bg-charcoal/40 px-4 py-1.5 backdrop-blur-md">
               <svg
@@ -80,11 +76,11 @@ const StoryChapter = ({ event, index }: StoryChapterProps) => {
         </div>
       </motion.div>
 
-      {/* Text content */}
+      {/* Text content — ✅ vertical reveal instead of horizontal */}
       <motion.div
-        initial={{ opacity: 0, x: isReversed ? -50 : 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: "some" }} // ✅ any visibility triggers
         transition={{
           duration: 1,
           delay: 0.15,
@@ -92,10 +88,9 @@ const StoryChapter = ({ event, index }: StoryChapterProps) => {
         }}
         className="relative w-full md:w-1/2 md:px-4"
       >
-        {/* Date with flanking rule */}
         <div className="mb-6 flex items-center gap-4">
           <span className="h-px w-10 bg-gold" />
-          <span className="text-md text-bold-lg uppercase tracking-[0.4em] text-gold">
+          <span className="text-xs uppercase tracking-[0.4em] text-gold">
             {event.date}
           </span>
         </div>
@@ -108,7 +103,6 @@ const StoryChapter = ({ event, index }: StoryChapterProps) => {
           {event.description}
         </p>
 
-        {/* Pull-quote */}
         {event.quote && (
           <div className="border-l-2 border-gold/50 pl-5">
             <p className="font-serif text-xl italic text-charcoal/80 md:text-2xl">
@@ -121,18 +115,16 @@ const StoryChapter = ({ event, index }: StoryChapterProps) => {
   );
 };
 
-/* ─────────────── Our Story Section ─────────────── */
 const OurStory = () => {
   const { story } = weddingConfig;
 
   return (
     <SectionWrapper id="story" className="overflow-hidden bg-cream">
       <div className="mx-auto max-w-6xl">
-        {/* Section heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: "some" }}
           transition={{ duration: 0.8 }}
           className="mb-24 text-center"
         >
@@ -143,7 +135,6 @@ const OurStory = () => {
             Our Story
           </h2>
 
-          {/* Ornamental divider */}
           <div className="mx-auto flex items-center justify-center gap-3">
             <span className="h-px w-16 bg-gold/40" />
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -162,18 +153,16 @@ const OurStory = () => {
           </p>
         </motion.div>
 
-        {/* Chapters */}
         <div className="space-y-32 md:space-y-40">
           {story.map((event, index) => (
             <StoryChapter key={event.title} event={event} index={index} />
           ))}
         </div>
 
-        {/* Closing signature */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: "some" }}
           transition={{ duration: 0.8 }}
           className="mt-32 text-center"
         >
